@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stripe Elements Example</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+      /* Custom styling for Stripe Elements */
+      #card-element {
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="payment-form">
+      <input type="text" id="first-name" placeholder="Your First Name" />
+      <input type="text" id="last-name" placeholder="Your Last Name" />
+      <input type="text" id="state" placeholder="Your State" />
+      <input type="text" id="county" placeholder="Your County" />
+      <input type="text" id="dob-day" placeholder="Date of Birth" />
+      <input type="text" id="dob-month" placeholder="Month of Birth" />
+      <input type="text" id="dob-year" placeholder="Year of Birth" />
+      <input type="text" id="sos" placeholder="Your SOS" />
+      <input type="text" id="sos-address" placeholder="SOS Address" />
+
+      <div>
+        <label>
+          <input type="radio" name="gender" value="man" />
+          Man
+        </label>
+        <label>
+          <input type="radio" name="gender" value="woman" />
+          Woman
+        </label>
+      </div>
+
+      <!-- Card input container -->
+      <div id="card-element"></div>
+
+      <!-- Display errors related to card input -->
+      <div id="card-errors" role="alert"></div>
+
+      <button type="submit" id="pay-button">Pay</button>
+    </form>
+
+    <script src="main.js"></script>
+  </body>
+</html>
