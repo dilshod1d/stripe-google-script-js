@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const stripe = Stripe("your_stripe_publishable_key");
+  const stripe = Stripe(
+    "pk_test_51Mt78QHvVLNAitmVOHdUhRPDzJqtpoGo8DBk21bjxO66Kzwgw7bGXT2V4qS04y5RuEANLwhcMGeaQUkpJHffeDhp00xYkfMaKd"
+  );
   const elements = stripe.elements();
 
   const cardElement = elements.create("card");
@@ -17,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("payment-form");
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    console.log("payment form submit");
 
     // Get form field values
     const firstName = document.getElementById("first-name").value;
@@ -41,25 +44,28 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       // Send the payment method ID to the Google App Script backend
       // Make sure to replace 'YOUR_GOOGLE_APP_SCRIPT_WEB_APP_URL' with the actual Web App URL that was generated when you deployed the Apps Script project.
-      const response = await fetch("YOUR_GOOGLE_APP_SCRIPT_WEB_APP_URL", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          paymentMethodId: paymentMethod.id,
-          firstName,
-          lastName,
-          state,
-          county,
-          dobDay,
-          dobMonth,
-          dobYear,
-          sos,
-          sosAddress,
-          gender,
-        }),
-      });
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbw58tijo2IzevuZK1blyMG46qcQjNm3G1Cw6pRqy3hVTcgN8jACsyVqSd2yB0Qf9raH2A/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            paymentMethodId: paymentMethod.id,
+            firstName,
+            lastName,
+            state,
+            county,
+            dobDay,
+            dobMonth,
+            dobYear,
+            sos,
+            sosAddress,
+            gender,
+          }),
+        }
+      );
 
       const result = await response.json();
       if (result.success) {
