@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Send the payment method ID to the Google App Script backend
       // Make sure to replace 'YOUR_GOOGLE_APP_SCRIPT_WEB_APP_URL' with the actual Web App URL that was generated when you deployed the Apps Script project.
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyhP2Nvm5YbIOHXdji7JPAe1FGZw8JGhPYxfrPh2NO3IoPyQxpECHTkb1YJo6ZTM2olbg/exec",
+        "https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycby450LbXDYdDEyyo8qBFf7vE4pny_Tgr6sum8Zbz4geClySDsj8Gk3i5msb7pC6rMn6Hg/exec",
         {
           redirect: "follow",
           method: "POST",
