@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Send the payment method ID to the Google App Script backend
       // Make sure to replace 'YOUR_GOOGLE_APP_SCRIPT_WEB_APP_URL' with the actual Web App URL that was generated when you deployed the Apps Script project.
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyPrX7YKX45IgbXqlgGivijj4OWsX4C1ONrjQuvELIf_iWBdsNDXihoAUM6A_lH-dniHA/exec",
+        "https://script.google.com/macros/s/AKfycby5EgZcxjYNHF1wtMPh2jYhjIDpBGobiDvgs5UskJxzxsa-s7S9Yv2pbKgf2GhRARpDcA/exec",
         {
           method: "POST",
           headers: {
